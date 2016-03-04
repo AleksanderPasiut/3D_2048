@@ -27,3 +27,13 @@ void BOARD::Draw() noexcept
 
 	walls.Draw();
 }
+
+bool BOARD::MouseButtonDown(LPARAM lParam) noexcept
+{
+	return walls.MouseButtonDown(lParam);
+}
+
+void BOARD::MouseMove(LPARAM lParam) noexcept
+{
+	walls.MouseMove(lParam);
+}

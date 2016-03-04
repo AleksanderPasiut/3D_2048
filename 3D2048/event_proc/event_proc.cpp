@@ -39,6 +39,12 @@ LRESULT CALLBACK EventProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		case WM_LBUTTONUP:
 		{
 			ReleaseCapture();
+			Core->MouseButtonUp(lParam);
+			break;
+		}
+		case WM_MOUSEWHEEL:
+		{
+			Core->MouseWheel(wParam, lParam);
 			break;
 		}
 		case WM_PAINT:

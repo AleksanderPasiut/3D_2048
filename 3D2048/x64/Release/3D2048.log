@@ -1,7 +1,11 @@
-﻿  walls.cpp
+﻿  board.cpp
+  walls.cpp
+  core.cpp
+  event_proc.cpp
+  main.cpp
   Generating code
-  4 of 151 functions ( 2.6%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
+  8 of 160 functions ( 5.0%) were compiled, the rest were copied from previous compilation.
+    2 functions were new in current compilation
     2 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   3D2048.vcxproj -> C:\Users\Avert Second\Documents\Visual Studio 2015\Projects\APMR\3D2048\x64\Release\3D2048.exe

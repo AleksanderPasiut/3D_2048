@@ -19,4 +19,7 @@ public:
 	~WALLS() noexcept;
 
 	void Draw() noexcept;
+
+	bool MouseButtonDown(LPARAM) noexcept;
+	void MouseMove(LPARAM) noexcept;
 };

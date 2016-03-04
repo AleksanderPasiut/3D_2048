@@ -21,4 +21,7 @@ public:
 	~BOARD() noexcept;
 
 	void Draw() noexcept;
+
+	bool MouseButtonDown(LPARAM) noexcept;
+	void MouseMove(LPARAM) noexcept;
 };

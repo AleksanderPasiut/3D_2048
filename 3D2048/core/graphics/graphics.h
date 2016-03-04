@@ -45,7 +45,7 @@ protected:
 
 	D3DCOLOR color_back;
 	D3DMATERIAL9 material_cube[8];
-	D3DMATERIAL9 material_wall;
+	D3DMATERIAL9 material_wall[2];
 
 	IDirect3DVertexBuffer9* vb_cube;
 
@@ -92,5 +92,5 @@ public:
 	float& PlaneFar() noexcept { return strProjection.plane_far; }
 
 	D3DMATERIAL9* MaterialCube(unsigned value) noexcept { return value < 8 ? &material_cube[value] : 0; }
-	D3DMATERIAL9* MaterialWall() noexcept { return &material_wall; }
+	D3DMATERIAL9* MaterialWall(unsigned value) noexcept { return value < 2 ? &material_wall[value] : 0; }
 };
