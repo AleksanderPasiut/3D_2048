@@ -44,12 +44,13 @@ void CORE::MouseButtonDown(LPARAM lParam) noexcept
 
 void CORE::MouseMove(WPARAM wParam, LPARAM lParam) noexcept
 {
+	if (!rotating.active)
+		board->MouseMove(lParam);
+
 	switch(wParam)
 	{
 		case MK_LBUTTON:
 		{
-			board->MouseMove(lParam);
-
 			if (rotating.active)
 			{
 				graphics->RotationY() = rotating.old_rotationY+(GET_Y_LPARAM(lParam)-rotating.click.y)*0.005f;
@@ -68,6 +69,7 @@ void CORE::MouseMove(WPARAM wParam, LPARAM lParam) noexcept
 void CORE::MouseButtonUp(LPARAM lParam) noexcept
 {
 	rotating.active = false;
+	board->MouseButtonUp(lParam);
 }
 
 void CORE::MouseWheel(WPARAM wParam, LPARAM lParam) noexcept

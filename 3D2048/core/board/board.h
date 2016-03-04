@@ -24,4 +24,5 @@ public:
 
 	bool MouseButtonDown(LPARAM) noexcept;
 	void MouseMove(LPARAM) noexcept;
+	void MouseButtonUp(LPARAM) noexcept;
 };

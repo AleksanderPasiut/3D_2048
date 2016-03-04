@@ -1,6 +1,7 @@
 #pragma once
 
 #include "..\\..\\graphics\\graphics.h"
+#include "selecting\\selecting.h"
 
 class WALLS
 {
@@ -10,7 +11,10 @@ protected:
 	D3DXMATRIX matrix_left_right;
 	D3DXMATRIX matrix_top_bottom;
 
-	void InitMatrices() noexcept;
+	SELECTING selecting;
+
+	inline void InitMatrices() noexcept;
+	inline unsigned DM(WALL_TYPE) noexcept;
 
 public:
 	WALLS(GRAPHICS&);
@@ -22,4 +26,5 @@ public:
 
 	bool MouseButtonDown(LPARAM) noexcept;
 	void MouseMove(LPARAM) noexcept;
+	void MouseButtonUp(LPARAM) noexcept;
 };

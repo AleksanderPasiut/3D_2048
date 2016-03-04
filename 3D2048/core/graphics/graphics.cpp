@@ -145,10 +145,11 @@ void GRAPHICS::InitMaterials() noexcept
 	material_cube[6].Diffuse = D3DXCOLOR(0.0f, 0.0f, 1.0f, 1.0f);
 	material_cube[7].Diffuse = D3DXCOLOR(0.8f, 0.0f, 1.0f, 1.0f);
 
-	for (unsigned i = 0; i < 2; i++)
+	for (unsigned i = 0; i < 3; i++)
 		ZeroMemory(&material_wall[i], sizeof(D3DMATERIAL9));
-	material_wall[0].Emissive = material_wall[0].Diffuse = D3DXCOLOR(0.2f, 0.2f, 0.25f, 0.1f);
+	material_wall[0].Emissive = material_wall[0].Diffuse = D3DXCOLOR(0.2f, 0.2f, 0.25f, 0.15f);
 	material_wall[1].Emissive = material_wall[1].Diffuse = D3DXCOLOR(0.4f, 0.6f, 0.45f, 0.25f);
+	material_wall[2].Emissive = material_wall[2].Diffuse = D3DXCOLOR(0.6f, 0.8f, 0.65f, 0.35f);
 }
 
 GRAPHICS::GRAPHICS(HWND in_hwnd) : 
@@ -222,6 +223,7 @@ void GRAPHICS::UpdateMatrixWorld() noexcept
 		&strWorld.matWorld,
 		D3DXMatrixRotationZ(&m1, strWorld.rotationZ),
 		D3DXMatrixRotationY(&m2, strWorld.rotationY));
+	D3DXMatrixInverse(&strWorld.matWorldInv, 0, &strWorld.matWorld);
 }
 void GRAPHICS::UpdateMatrixView() noexcept
 {
@@ -229,6 +231,7 @@ void GRAPHICS::UpdateMatrixView() noexcept
 		&strView.camera_pos,
 		&strView.look_at_point,
 		&strView.up_direction);
+	D3DXMatrixInverse(&strView.matViewInv, 0, &strView.matView);
 }
 void GRAPHICS::UpdateMatrixProjection() noexcept
 {

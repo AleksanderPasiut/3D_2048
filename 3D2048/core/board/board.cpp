@@ -32,8 +32,11 @@ bool BOARD::MouseButtonDown(LPARAM lParam) noexcept
 {
 	return walls.MouseButtonDown(lParam);
 }
-
 void BOARD::MouseMove(LPARAM lParam) noexcept
 {
 	walls.MouseMove(lParam);
+}
+void BOARD::MouseButtonUp(LPARAM lParam) noexcept
+{
+	walls.MouseButtonUp(lParam);
 }

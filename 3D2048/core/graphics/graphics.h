@@ -21,12 +21,14 @@ protected:
 	struct STR_WORLD
 	{
 		D3DXMATRIX matWorld;
+		D3DXMATRIX matWorldInv;
 		float rotationY;
 		float rotationZ;
 	};
 	struct STR_VIEW
 	{
 		D3DXMATRIX matView;
+		D3DXMATRIX matViewInv;
 		D3DXVECTOR3 camera_pos;
 		D3DXVECTOR3 look_at_point;
 		D3DXVECTOR3 up_direction;
@@ -45,7 +47,7 @@ protected:
 
 	D3DCOLOR color_back;
 	D3DMATERIAL9 material_cube[8];
-	D3DMATERIAL9 material_wall[2];
+	D3DMATERIAL9 material_wall[3];
 
 	IDirect3DVertexBuffer9* vb_cube;
 
@@ -82,6 +84,8 @@ public:
 	void DrawWallBottomOut() noexcept;
 
 	IDirect3DDevice9* RetDevice() noexcept { return d3ddev; }
+	unsigned BufferWidth() const noexcept { return d3dpp.BackBufferWidth; }
+	unsigned BufferHeight() const noexcept { return d3dpp.BackBufferHeight; }
 	float& RotationY() noexcept { return strWorld.rotationY; }
 	float& RotationZ() noexcept { return strWorld.rotationZ; }
 	D3DXVECTOR3& CameraPos() noexcept { return strView.camera_pos; }
@@ -90,7 +94,10 @@ public:
 	float& ProjectionAngle() noexcept { return strProjection.angle; }
 	float& PlaneNear() noexcept { return strProjection.plane_near; }
 	float& PlaneFar() noexcept { return strProjection.plane_far; }
+	const D3DXMATRIX& InvWorldMatrix() const noexcept { return strWorld.matWorldInv; }
+	const D3DXMATRIX& InvViewMatrix() const noexcept { return strView.matViewInv; }
+	const D3DXMATRIX& ProjectionMatrix() const noexcept { return strProjection.matProjection; }
 
 	D3DMATERIAL9* MaterialCube(unsigned value) noexcept { return value < 8 ? &material_cube[value] : 0; }
-	D3DMATERIAL9* MaterialWall(unsigned value) noexcept { return value < 2 ? &material_wall[value] : 0; }
+	D3DMATERIAL9* MaterialWall(unsigned value) noexcept { return value < 3 ? &material_wall[value] : 0; }
 };
