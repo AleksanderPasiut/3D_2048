@@ -4,9 +4,14 @@ c:\users\avert second\documents\visual studio 2015\projects\apmr\3d2048\3d2048\x
 c:\users\avert second\documents\visual studio 2015\projects\apmr\3d2048\3d2048\x64\release\event_proc.obj
 c:\users\avert second\documents\visual studio 2015\projects\apmr\3d2048\3d2048\x64\release\graphics.obj
 c:\users\avert second\documents\visual studio 2015\projects\apmr\3d2048\3d2048\x64\release\core.obj
-c:\users\avert second\documents\visual studio 2015\projects\apmr\3d2048\3d2048\x64\release\board_init_graphics.obj
-c:\users\avert second\documents\visual studio 2015\projects\apmr\3d2048\3d2048\x64\release\board.obj
 c:\users\avert second\documents\visual studio 2015\projects\apmr\3d2048\3d2048\x64\release\board_graphics.obj
+c:\users\avert second\documents\visual studio 2015\projects\apmr\3d2048\3d2048\x64\release\board.obj
+c:\users\avert second\documents\visual studio 2015\projects\apmr\3d2048\3d2048\x64\release\cube.obj
+c:\users\avert second\documents\visual studio 2015\projects\apmr\3d2048\3d2048\x64\release\wall.obj
+c:\users\avert second\documents\visual studio 2015\projects\apmr\3d2048\3d2048\x64\release\walls.obj
+c:\users\avert second\documents\visual studio 2015\projects\apmr\3d2048\3d2048\x64\release\selecting.obj
+c:\users\avert second\documents\visual studio 2015\projects\apmr\3d2048\3d2048\x64\release\animator.obj
+c:\users\avert second\documents\visual studio 2015\projects\apmr\3d2048\3d2048\x64\release\ani.obj
 c:\users\avert second\documents\visual studio 2015\projects\apmr\3d2048\x64\release\3d2048.exe
 c:\users\avert second\documents\visual studio 2015\projects\apmr\3d2048\x64\release\3d2048.ipdb
 c:\users\avert second\documents\visual studio 2015\projects\apmr\3d2048\x64\release\3d2048.iobj

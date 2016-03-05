@@ -42,6 +42,12 @@
     <ClCompile Include="core\board\walls\selecting\selecting.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="core\board\cube\animator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\board\cube\ani.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mainwindow\mainwindow.h">
@@ -72,6 +78,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="core\board\walls\selecting\selecting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\board\cube\animator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -11,7 +11,7 @@ BOARD::BOARD(GRAPHICS& in_graphics) :
 					graphics,
 					{i, j, k}, 
 					properties, 
-					static_cast<CUBE_STATE>(i+j+k)));
+					static_cast<CUBE_STATE>(i+j+k+1)));
 }
 
 BOARD::~BOARD() noexcept

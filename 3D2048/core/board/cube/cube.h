@@ -2,6 +2,7 @@
 
 #include "..\\..\\graphics\\graphics.h"
 #include "..\\properties.h"
+#include "animator.h"
 
 enum CUBE_STATE
 {
@@ -31,7 +32,14 @@ protected:
 	D3DXMATRIX matrix;
 	CUBE_STATE state;
 
+	ANIMATOR animator;
+
 	void InitScaleNMatrix() noexcept;
+
+	void AniFromCurrentPos(ANI*) const noexcept;
+	void AniToMatrix(const ANI&) noexcept;
+	bool AnimationProceed() noexcept;
+	void AnimationFinish() noexcept;
 
 public:
 	CUBE(GRAPHICS&, POS initial_position, const PROPERTIES& board_properties, CUBE_STATE initial_state);
@@ -40,4 +48,6 @@ public:
 	~CUBE() noexcept;
 
 	void Draw() noexcept;
+
+	void AnimationInit(ANI* end, ANI* start = 0) noexcept;
 };

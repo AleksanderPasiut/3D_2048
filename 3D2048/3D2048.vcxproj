@@ -151,6 +151,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="core\board\board.cpp" />
+    <ClCompile Include="core\board\cube\ani.cpp" />
+    <ClCompile Include="core\board\cube\animator.cpp" />
     <ClCompile Include="core\board\cube\cube.cpp" />
     <ClCompile Include="core\board\walls\selecting\selecting.cpp" />
     <ClCompile Include="core\board\walls\walls.cpp" />
@@ -162,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\board\board.h" />
+    <ClInclude Include="core\board\cube\animator.h" />
     <ClInclude Include="core\board\cube\cube.h" />
     <ClInclude Include="core\board\properties.h" />
     <ClInclude Include="core\board\walls\selecting\selecting.h" />

@@ -19,6 +19,16 @@ CUBE::CUBE(GRAPHICS& in_graphics, POS init_pos, const PROPERTIES& board_properti
 	state(in_state)
 {
 	InitScaleNMatrix();
+
+	ANI ani;
+	ani.color = graphics.MaterialCube(CS_GREEN)->Diffuse;
+	ani.scale = 0.0f;
+	ani.pos = { 2.0f, 0.0f, 0.0f };
+
+	ANI end;
+	AniFromCurrentPos(&end);
+
+	AnimationInit(&end, &ani);
 }
 
 CUBE::~CUBE() noexcept
@@ -30,12 +40,15 @@ void CUBE::Draw() noexcept
 {
 	IDirect3DDevice9& dev = *graphics.RetDevice();
 
+	if (!AnimationProceed())
+		dev.SetMaterial(graphics.MaterialCube(state));
+
 	D3DXMATRIX old_transform;
 	dev.GetTransform(D3DTS_WORLD, &old_transform);
 	D3DXMATRIX new_transform;
 	D3DXMatrixMultiply(&new_transform, &matrix, &old_transform);
 	dev.SetTransform(D3DTS_WORLD, &new_transform);
-	dev.SetMaterial(graphics.MaterialCube(state));
+
 	graphics.DrawCube();
 	dev.SetTransform(D3DTS_WORLD, &old_transform);
 }
