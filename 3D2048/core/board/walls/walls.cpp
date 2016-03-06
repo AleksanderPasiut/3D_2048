@@ -91,17 +91,8 @@ void WALLS::MouseMove(LPARAM lParam) noexcept
 	if (!selecting.Clicked())
 		selecting.PerformSelecting(graphics, lParam);
 }
-void WALLS::MouseButtonUp(LPARAM) noexcept
+WALL_TYPE WALLS::MouseButtonUp(LPARAM) noexcept
 {
 	selecting.PerformClicking(WM_LBUTTONUP);
-
-	switch(selecting.Selected())
-	{
-		case WALL_FRONT: MessageBox(0, L"front wall", L"click", MB_OK); break;
-		case WALL_BACK: MessageBox(0, L"back wall", L"click", MB_OK); break;
-		case WALL_LEFT: MessageBox(0, L"left wall", L"click", MB_OK); break;
-		case WALL_RIGHT: MessageBox(0, L"right wall", L"click", MB_OK); break;
-		case WALL_TOP: MessageBox(0, L"top wall", L"click", MB_OK); break;
-		case WALL_BOTTOM: MessageBox(0, L"bottom wall", L"click", MB_OK); break;
-	}
+	return selecting.Selected();
 }

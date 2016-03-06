@@ -4,14 +4,17 @@ BOARD::BOARD(GRAPHICS& in_graphics) :
 	graphics(in_graphics),
 	walls(graphics)
 {
-	for (unsigned i = 0; i < 3; i++)
-		for (unsigned j = 0; j < 3; j++)
-			for (unsigned k = 0; k < 3; k++)
+	for (unsigned i = 0; i < properties.x_size; i++)
+		for (unsigned j = 0; j < properties.y_size; j++)
+			for (unsigned k = 0; k < properties.z_size; k++)
 				set.push_back(new CUBE(
 					graphics,
 					{i, j, k}, 
 					properties, 
-					static_cast<CUBE_STATE>(i+j+k+1)));
+					CS_INVISIBLE));
+
+	for (auto it = set.begin(); it != set.end(); it++)
+		(*it)->Show();
 }
 
 BOARD::~BOARD() noexcept
@@ -23,7 +26,14 @@ BOARD::~BOARD() noexcept
 void BOARD::Draw() noexcept
 {
 	for (auto it = set.begin(); it != set.end(); it++)
-		(*it)->Draw();
+	{
+		if ((*it)->ToBeDestroyed())
+		{
+			delete *it;
+			it = set.erase(it);
+		}
+		else (*it)->Draw();
+	}
 
 	walls.Draw();
 }
@@ -38,5 +48,5 @@ void BOARD::MouseMove(LPARAM lParam) noexcept
 }
 void BOARD::MouseButtonUp(LPARAM lParam) noexcept
 {
-	walls.MouseButtonUp(lParam);
+	Move(walls.MouseButtonUp(lParam));
 }

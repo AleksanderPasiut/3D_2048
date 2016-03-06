@@ -2,6 +2,8 @@
 
 #include "..\\..\\graphics\\graphics.h"
 
+static const unsigned int WM_CUBE_REMOVE = 0x8001;
+
 struct ANI
 {
 	D3DXVECTOR3 pos;
@@ -16,6 +18,7 @@ struct ANI
 struct ANIMATOR
 {
 	bool animate;
+	bool self_destruct;
 	float animation_time;
 	float timer;
 	ANI start;
@@ -25,7 +28,8 @@ struct ANIMATOR
 
 	ANIMATOR() : 
 		animate(false),
-		animation_time(300.0f),
+		self_destruct(false),
+		animation_time(10.0f),
 		material({0})
 		{}
 };

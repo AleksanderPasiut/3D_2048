@@ -48,6 +48,9 @@
     <ClCompile Include="core\board\cube\ani.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="core\board\board_move.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mainwindow\mainwindow.h">

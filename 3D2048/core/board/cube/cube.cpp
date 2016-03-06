@@ -19,18 +19,7 @@ CUBE::CUBE(GRAPHICS& in_graphics, POS init_pos, const PROPERTIES& board_properti
 	state(in_state)
 {
 	InitScaleNMatrix();
-
-	ANI ani;
-	ani.color = graphics.MaterialCube(CS_GREEN)->Diffuse;
-	ani.scale = 0.0f;
-	ani.pos = { 2.0f, 0.0f, 0.0f };
-
-	ANI end;
-	AniFromCurrentPos(&end);
-
-	AnimationInit(&end, &ani);
 }
-
 CUBE::~CUBE() noexcept
 {
 
@@ -51,4 +40,52 @@ void CUBE::Draw() noexcept
 
 	graphics.DrawCube();
 	dev.SetTransform(D3DTS_WORLD, &old_transform);
+}
+
+void CUBE::Show() noexcept
+{
+	ANI start;
+	AniFromCurrentPos(&start);
+
+	start.scale = 0.0f;
+
+	ANI end;
+	AniFromCurrentPos(&end);
+
+	AnimationInit(&end, &start);
+}
+void CUBE::MoveIn(D3DXVECTOR3 starting_pos) noexcept
+{
+	ANI start;
+	start.pos = starting_pos;
+	start.scale = 0.0f;
+	start.color = graphics.MaterialCube(static_cast<unsigned>(state))->Diffuse;
+
+	ANI end;
+	AniFromCurrentPos(&end);
+
+	AnimationInit(&end, &start);
+}
+void CUBE::Move(POS in_pos, CUBE_STATE cs) noexcept
+{
+	ANI start;
+	AniFromCurrentPos(&start);
+
+	pos = in_pos;
+	state = cs;
+
+	ANI end;
+	AniFromCurrentPos(&end);
+
+	AnimationInit(&end, &start);
+}
+void CUBE::MoveOut(D3DXVECTOR3 fading_pos) noexcept
+{
+	ANI end;
+	end.pos = fading_pos;
+	end.scale = 0.0f;
+	end.color = graphics.MaterialCube(CS_INVISIBLE)->Diffuse;
+
+	AnimationInit(&end);
+	animator.self_destruct = true;
 }

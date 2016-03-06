@@ -40,6 +40,7 @@ protected:
 	void AniToMatrix(const ANI&) noexcept;
 	bool AnimationProceed() noexcept;
 	void AnimationFinish() noexcept;
+	void AnimationInit(ANI* end, ANI* start = 0) noexcept;
 
 public:
 	CUBE(GRAPHICS&, POS initial_position, const PROPERTIES& board_properties, CUBE_STATE initial_state);
@@ -49,5 +50,13 @@ public:
 
 	void Draw() noexcept;
 
-	void AnimationInit(ANI* end, ANI* start = 0) noexcept;
+	void Show() noexcept;
+	void MoveIn(D3DXVECTOR3 starting_pos) noexcept;
+	void Move(POS target_pos, CUBE_STATE target_state) noexcept;
+	void MoveOut(D3DXVECTOR3 fading_pos) noexcept;
+
+	CUBE_STATE RetState() const noexcept { return state; }
+	bool ToBeDestroyed() const noexcept { return !animator.animate && animator.self_destruct; }
+	
+	friend class BOARD;
 };

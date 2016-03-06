@@ -14,6 +14,10 @@ protected:
 	std::vector<CUBE*> set;
 	WALLS walls;
 
+	inline CUBE** PtrsArray(WALL_TYPE) const;
+	inline CUBE* Cube(CUBE**, unsigned, unsigned, unsigned) noexcept;
+	void Move(WALL_TYPE) noexcept;
+
 public:
 	BOARD(GRAPHICS&);
 	BOARD(const BOARD&) = delete;

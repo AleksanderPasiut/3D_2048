@@ -151,6 +151,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="core\board\board.cpp" />
+    <ClCompile Include="core\board\board_move.cpp" />
     <ClCompile Include="core\board\cube\ani.cpp" />
     <ClCompile Include="core\board\cube\animator.cpp" />
     <ClCompile Include="core\board\cube\cube.cpp" />

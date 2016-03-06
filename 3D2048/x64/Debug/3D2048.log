@@ -1,2 +1,11 @@
-﻿  cube.cpp
+﻿cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
+  board.cpp
+  board_move.cpp
+  ani.cpp
+  animator.cpp
+  cube.cpp
+  core.cpp
+  event_proc.cpp
+  main.cpp
+  Generating Code...
   3D2048.vcxproj -> C:\Users\Avert Second\Documents\Visual Studio 2015\Projects\APMR\3D2048\x64\Debug\3D2048.exe
