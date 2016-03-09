@@ -29,7 +29,7 @@ struct ANIMATOR
 	ANIMATOR() : 
 		animate(false),
 		self_destruct(false),
-		animation_time(10.0f),
+		animation_time(15.0f),
 		material({0})
 		{}
 };

@@ -5,10 +5,8 @@ void CUBE::InitScaleNMatrix() noexcept
 	scale = 0.2f;
 	D3DXMatrixScaling(&matrix, scale, scale, scale);
 	D3DXMATRIX tmp;
-	D3DXMatrixTranslation(&tmp, 
-		2.0f*static_cast<float>(pos.x)/static_cast<float>(brdppts.x_size-1)-1.0f,
-		2.0f*static_cast<float>(pos.y)/static_cast<float>(brdppts.y_size-1)-1.0f,
-		2.0f*static_cast<float>(pos.z)/static_cast<float>(brdppts.z_size-1)-1.0f);
+	D3DXVECTOR3 vec = Position();
+	D3DXMatrixTranslation(&tmp, Position().x, Position().y, Position().z);
 	D3DXMatrixMultiply(&matrix, &matrix, &tmp);
 }
 

@@ -57,6 +57,11 @@ public:
 
 	CUBE_STATE RetState() const noexcept { return state; }
 	bool ToBeDestroyed() const noexcept { return !animator.animate && animator.self_destruct; }
+	D3DXVECTOR3 Position() const noexcept 
+	{ return D3DXVECTOR3(
+		2.0f*static_cast<float>(pos.x)/static_cast<float>(brdppts.x_size-1)-1.0f,
+		2.0f*static_cast<float>(pos.y)/static_cast<float>(brdppts.y_size-1)-1.0f,
+		2.0f*static_cast<float>(pos.z)/static_cast<float>(brdppts.z_size-1)-1.0f); }
 	
 	friend class BOARD;
 };

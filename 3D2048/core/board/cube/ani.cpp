@@ -4,10 +4,10 @@ ANI& ANI::operator+= (const ANI& arg) noexcept
 {
 	this->pos += arg.pos;
 	this->scale += arg.scale;
-	//this->color.r += arg.color.r;
-	//this->color.g += arg.color.g;
-	//this->color.b += arg.color.b;
-	//this->color.a = (this->color.a+arg.color.a)/2;
+	this->color.r += arg.color.r;
+	this->color.g += arg.color.g;
+	this->color.b += arg.color.b;
+	this->color.a = (this->color.a+arg.color.a)/2;
 	return *this;
 }
 

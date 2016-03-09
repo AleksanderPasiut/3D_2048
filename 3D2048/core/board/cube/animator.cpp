@@ -4,10 +4,7 @@ void CUBE::AniFromCurrentPos(ANI* out) const noexcept
 {
 	*out =
 	{
-		D3DXVECTOR3(
-			2.0f*static_cast<float>(pos.x)/static_cast<float>(brdppts.x_size-1)-1.0f,
-			2.0f*static_cast<float>(pos.y)/static_cast<float>(brdppts.y_size-1)-1.0f,
-			2.0f*static_cast<float>(pos.z)/static_cast<float>(brdppts.z_size-1)-1.0f),
+		Position(),
 		scale,
 		graphics.MaterialCube(static_cast<unsigned>(state))->Diffuse
 	};
