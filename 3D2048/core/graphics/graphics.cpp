@@ -9,7 +9,7 @@ void GRAPHICS::CreateDirect3DDevice()
 		true,
 		D3DMULTISAMPLE_8_SAMPLES,
 		&quality);
-
+	
 	ZeroMemory(&d3dpp, sizeof(D3DPRESENT_PARAMETERS));
 	d3dpp.Windowed = true;
 	d3dpp.hDeviceWindow = hwnd;
@@ -147,7 +147,7 @@ void GRAPHICS::InitMaterials() noexcept
 
 	for (unsigned i = 0; i < 3; i++)
 		ZeroMemory(&material_wall[i], sizeof(D3DMATERIAL9));
-	material_wall[0].Emissive = material_wall[0].Diffuse = D3DXCOLOR(0.2f, 0.2f, 0.25f, 0.15f);
+	material_wall[0].Emissive = material_wall[0].Diffuse = D3DXCOLOR(0.3f, 0.3f, 0.35f, 0.15f);
 	material_wall[1].Emissive = material_wall[1].Diffuse = D3DXCOLOR(0.4f, 0.6f, 0.45f, 0.25f);
 	material_wall[2].Emissive = material_wall[2].Diffuse = D3DXCOLOR(0.6f, 0.8f, 0.65f, 0.35f);
 }
@@ -200,7 +200,7 @@ GRAPHICS::~GRAPHICS() noexcept
 void GRAPHICS::BeginScene() noexcept
 {
 	d3ddev->Clear(0, 0, D3DCLEAR_TARGET, color_back, 1.0f, 0);
-	d3ddev->Clear(0, 0, D3DCLEAR_ZBUFFER, color_back, 1.3f, 0);
+	d3ddev->Clear(0, 0, D3DCLEAR_ZBUFFER, color_back, 1.0f, 0);
 
 	d3ddev->BeginScene();
 
@@ -213,7 +213,7 @@ void GRAPHICS::BeginScene() noexcept
 void GRAPHICS::EndScene() noexcept
 {
 	d3ddev->EndScene();
-	d3ddev->Present(0, 0, 0, 0);
+	HRESULT hres = d3ddev->Present(0, 0, 0, 0);
 }
 
 void GRAPHICS::UpdateMatrixWorld() noexcept

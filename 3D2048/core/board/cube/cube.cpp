@@ -14,7 +14,8 @@ CUBE::CUBE(GRAPHICS& in_graphics, POS init_pos, const PROPERTIES& board_properti
 	graphics(in_graphics),
 	pos(init_pos),
 	brdppts(board_properties),
-	state(in_state)
+	state(in_state),
+	showed(false)
 {
 	InitScaleNMatrix();
 }
@@ -25,6 +26,9 @@ CUBE::~CUBE() noexcept
 
 void CUBE::Draw() noexcept
 {
+	//if (!state)
+		//return;
+
 	IDirect3DDevice9& dev = *graphics.RetDevice();
 
 	if (!AnimationProceed())
@@ -42,6 +46,8 @@ void CUBE::Draw() noexcept
 
 void CUBE::Show() noexcept
 {
+	showed = true;
+
 	ANI start;
 	AniFromCurrentPos(&start);
 
@@ -64,7 +70,7 @@ void CUBE::MoveIn(D3DXVECTOR3 starting_pos) noexcept
 
 	AnimationInit(&end, &start);
 }
-void CUBE::Move(POS in_pos, CUBE_STATE cs) noexcept
+void CUBE::Move(POS in_pos, CUBE_STATE cs, bool self_destruct) noexcept
 {
 	ANI start;
 	AniFromCurrentPos(&start);
@@ -76,6 +82,7 @@ void CUBE::Move(POS in_pos, CUBE_STATE cs) noexcept
 	AniFromCurrentPos(&end);
 
 	AnimationInit(&end, &start);
+	animator.self_destruct = self_destruct;
 }
 void CUBE::MoveOut(D3DXVECTOR3 fading_pos) noexcept
 {

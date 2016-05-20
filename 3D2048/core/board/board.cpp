@@ -1,5 +1,18 @@
 #include "board.h"
 
+void BOARD::PlaceFirstCubes() noexcept
+{
+	srand(GetTickCount());
+
+	unsigned k1 = rand()%set.size();
+	unsigned k2 = rand()%(set.size()-1);
+	if (k2 == k1)
+		k2 = set.size()-1;
+
+	set[k1]->state = CS_RED;
+	set[k2]->state = CS_RED;
+}
+
 BOARD::BOARD(GRAPHICS& in_graphics) : 
 	graphics(in_graphics),
 	walls(graphics)
@@ -12,6 +25,8 @@ BOARD::BOARD(GRAPHICS& in_graphics) :
 					{i, j, k}, 
 					properties, 
 					CS_INVISIBLE));
+
+	PlaceFirstCubes();
 
 	for (auto it = set.begin(); it != set.end(); it++)
 		(*it)->Show();

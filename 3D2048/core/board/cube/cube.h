@@ -31,6 +31,7 @@ protected:
 	float scale;
 	D3DXMATRIX matrix;
 	CUBE_STATE state;
+	bool showed;
 
 	ANIMATOR animator;
 
@@ -52,11 +53,12 @@ public:
 
 	void Show() noexcept;
 	void MoveIn(D3DXVECTOR3 starting_pos) noexcept;
-	void Move(POS target_pos, CUBE_STATE target_state) noexcept;
+	void Move(POS target_pos, CUBE_STATE target_state, bool self_destruct) noexcept;
 	void MoveOut(D3DXVECTOR3 fading_pos) noexcept;
 
 	CUBE_STATE RetState() const noexcept { return state; }
 	bool ToBeDestroyed() const noexcept { return !animator.animate && animator.self_destruct; }
+	bool Showed() const noexcept { return showed; }
 	D3DXVECTOR3 Position() const noexcept 
 	{ return D3DXVECTOR3(
 		2.0f*static_cast<float>(pos.x)/static_cast<float>(brdppts.x_size-1)-1.0f,

@@ -15,7 +15,9 @@ protected:
 	WALLS walls;
 
 	inline CUBE** PtrsArray(WALL_TYPE) const;
-	inline CUBE* Cube(CUBE**, unsigned, unsigned, unsigned) noexcept;
+	inline bool FallCubes(CUBE**, WALL_TYPE);
+	inline void PlaceFirstCubes() noexcept;
+	inline void PlaceNewCube() noexcept;
 	void Move(WALL_TYPE) noexcept;
 
 public:
